@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('username');
+            $table->text('description')->nullable();
             $table->string('email')->unique();
             $table->foreignId('role_id')->default(2);
             $table->foreignId('state_id')->default(1);
@@ -25,7 +26,6 @@ return new class extends Migration
             $table->string('place_link')->nullable();
             $table->string('bio')->nullable();
             $table->string('avatar')->nullable();
-            $table->string('cover_image')->nullable();
             $table->boolean('is_varified')->default(false);
 
             $table->timestamp('email_verified_at')->nullable();

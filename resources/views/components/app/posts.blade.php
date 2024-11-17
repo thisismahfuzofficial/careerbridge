@@ -18,12 +18,12 @@
         </div>
         <div class="d-flex align-items-center w-100">
             <div class="post-title">
-                <a href="#" class="fw-5 text-dark">Mahfuzul Islam <img  src="assets/images/svg/blue-check.svg" alt="checked"></a>
+                <a href="#" class="fw-5 text-dark">Mahfuzul Islam <img  src="{{asset('assets/images/svg/blue-check.svg')}}" alt="checked"></a>
                 <div class="fw-6 text-secondary">Laravel Developer</div>
             </div>
             <div class="p-3 ms-auto">
-                <img class="active" src="assets/images/svg/save.svg" alt="save">
-                <img class="active" src="assets/images/svg/save-fill.svg" alt="save">
+                <img class="active" src="{{asset('assets/images/svg/save.svg')}}" alt="save">
+                <img class="active" src="{{asset('assets/images/svg/save-fill.svg')}}" alt="save">
             </div>
         </div>
         

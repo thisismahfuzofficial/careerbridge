@@ -14,7 +14,6 @@
                 <a href="#search-offcanvas" data-bs-toggle="offcanvas">
                     <i class="iconsax icon-btn" data-icon="search-normal-2"> </i>
                 </a>
-                
             </div>
         </div>
     </div>

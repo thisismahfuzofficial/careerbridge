@@ -18,9 +18,16 @@ Route::group(['controller' => PagesController::class, 'as' => 'page.'], function
 });
 
 //profile 
-Route::group(['controller' => ProfileController::class, 'as' => 'profile.', 'prefix' => 'profile'], function () {
-    Route::get('/', 'profile')->name('index');
+
+
+Route::middleware('auth')->group(function () {
+    Route::controller(ProfileController::class)->group(function () {
+        Route::get('/profile', 'profile')->name('profile.index');
+        Route::get('/edit/profile/{user}', 'edit')->name('profile.edit');
+        Route::post('/profile/update', 'update')->name('profile.update');
+    });
 });
+
 Route::get('comming-soon', function () {
     return view('layouts.soon');
 })->name('soon');

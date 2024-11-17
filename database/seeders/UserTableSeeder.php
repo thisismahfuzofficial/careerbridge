@@ -46,6 +46,13 @@ class UserTableSeeder extends Seeder
                 'password' => Hash::make('password'),
             ],
             [
+                'name' => 'mahfuz',
+                'role_id' => 1,
+                'username' => 'mahfuz',
+                'email' => 'mahfuzul@gmail.com',
+                'password' => Hash::make('password'),
+            ],
+            [
                 'name' => 'user',
                 'role_id' => 2,
                 'username' => 'user',
