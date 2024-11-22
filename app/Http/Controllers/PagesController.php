@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Skill;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -14,5 +15,6 @@ class PagesController extends Controller
     {
         return view('layouts.saved');
     }
+
    
 }

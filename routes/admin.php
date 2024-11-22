@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\Admin\PagesController;
 use App\Http\Controllers\Admin\SkillController;
+use App\Http\Controllers\VerifyController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -22,4 +23,9 @@ Route::middleware(['role:admin'])
             Route::post('/skills/update/{skill}', 'update')->name('skills.update');
             Route::delete('/skills/delete/{skill}', 'destroy')->name('skills.delete');
         });
+        Route::controller(VerifyController::class)->group(function () {
+            Route::get('/requests', 'index')->name('requests');
+            Route::post('/varify/user/{user}', 'varifyUser')->name('varify.user');
+        });
+
     });

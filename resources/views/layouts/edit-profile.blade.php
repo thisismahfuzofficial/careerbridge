@@ -26,23 +26,36 @@
                         value="{{ auth()->user()->name }}">
                 </div>
                 <div class="form-group">
-                    <label class="form-label mb-2" for="Inputname">Protfolio Link</label>
+                    <label class="form-label mb-2" for="Inputname">Protfolio Or CV Link</label>
                     <input type="text" class="form-control" id="Inputname"
                         placeholder="Enter your Protfolio url here" name="url" value="{{ auth()->user()->url }}">
                 </div>
 
                 <div class="form-group">
                     <label class="form-label mb-2" for="Inputemail">Email</label>
-                    <input type="email" class="form-control" id="Inputemail"  value="{{ auth()->user()->email }}"
+                    <input type="email" class="form-control" id="Inputemail" value="{{ auth()->user()->email }}"
                         disabled>
+                </div>
+                <div class="form-group">
+                    <label class="form-label mb-2" for="Inputstatus">Your Title</label>
+                    <input type="text" class="form-control" id="Inputstatus" placeholder="Enter your position here"
+                        value="{{ auth()->user()->title }}" name="title">
                 </div>
                 <div class="form-group">
                     <label for="" class=" form-label    mb-2">Skills :</label>
                     <select class="js-example-basic-multiple form-control " name="skills[]" multiple="multiple">
                         @foreach ($skills as $skill)
-                            <option value="{{ $skill->slug }}" class="form-control">{{ $skill->name }}.</option>
+                            <option value="{{ $skill->id }}"
+                                {{ auth()->user()->skills->contains($skill->id)? 'selected': '' }}>
+                                {{ $skill->name }}
+                            </option>
                         @endforeach
                     </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label mb-2" for="Inputstatus">Add description</label>
+                    <textarea id="" cols="20" rows="4" class="form-control" name="description"
+                        placeholder="Enter your description here">{{ auth()->user()->description }}</textarea>
                 </div>
                 <div class="form-group">
                     <label class="form-label mb-2" for="Inputstatus">Add work place</label>
@@ -50,33 +63,44 @@
                         placeholder="Enter your workplace title here" value="{{ auth()->user()->place_title }}"
                         name="place_title">
                 </div>
-                <div class="form-group">
-                    <label class="form-label mb-2" for="Inputstatus">Your position at work place</label>
-                    <input type="text" class="form-control" id="Inputstatus" placeholder="Enter your position here"
-                        value="{{ auth()->user()->title }}" name="title">
-                </div>
+               
                 <div class="form-group">
                     <label class="form-label mb-2" for="Inputstatus">Add work place url</label>
                     <input type="text" class="form-control" id="Inputstatus"
                         placeholder="Enter your workplace url here" name="place_link"
                         value="{{ auth()->user()->place_link }}">
                 </div>
-                <div class="form-group">
-                    <label class="form-label mb-2" for="Inputstatus">Add description</label>
-                    <textarea name="" id="" cols="20" rows="4" class="form-control" name="description"
-                        placeholder="Enter your description here">{{ auth()->user()->description }}</textarea>
-                </div>
-
-
-
-
-
-
-
                 <button type="submit" class="btn theme-btn w-100 mt-sm-5 mt-4">Update</button>
 
             </div>
+            <hr>
         </form>
+        <div class="custom-container mt-3">
+            <div class="auth-form profile-form">
+                <h3>Get verified</h3>
+                @if ($userExists)
+                    <div class="text-center">
+                        <img src="{{ asset('assets/images/icons/checked.png') }}" alt="">
+                        <h3 class="mt-3 text-success ">Request To get verified is sent</h3>
+                    </div>
+                @else
+                    <p class="text-secondary">Please provide documentation or an image that demonstrates
+                        your professional status or success. This could include an employment ID card, a professional
+                        certification, or any other relevant proof of achievement.</p>
+                    <p class="text-danger fst-italic mt-1">This information is confidential</p>
+                    <form action="{{ route('profile.fileUpload') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-group">
+                            <label class="form-label mb-2" for="File Or Image">File Or Image</label>
+                            <input type="file" class="form-control" name="verify" required>
+                        </div>
+                        <button type="submit" class="btn theme-btn w-100 mt-sm-5 mt-4">Submit</button>
+
+                    </form>
+                @endif
+
+            </div>
+        </div>
     </section>
     @push('scripts')
         <script>

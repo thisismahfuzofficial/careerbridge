@@ -9,7 +9,8 @@
                 <li class="menu-title" key="t-menu">Dashboard</li>
 
                 <li><a href="#"><i class="bx bx-food-menu"></i><span>Dashboard</span></a></li>
-                <li><a href="{{route('admin.skills')}}"><i class="bx bx-menu-alt-left"></i><span>skills</span></a></li>
+                <li><a href="{{route('admin.skills')}}"><i class="bx bx-menu-alt-left"></i><span>Skills</span></a></li>
+                <li><a href="{{route('admin.requests')}}"><i class="bx bx-menu-alt-left"></i><span>Verify Request</span></a></li>
 
                 {{-- <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">

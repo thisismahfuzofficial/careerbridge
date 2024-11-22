@@ -28,7 +28,7 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-    
+
     /**
      * Get the attributes that should be cast.
      *
@@ -49,4 +49,14 @@ class User extends Authenticatable
     {
         return $this->belongsTo(State::class);
     }
+    public function skills()
+    {
+        return $this->belongsToMany(Skill::class, 'user_skill')->withTimestamps();
+    }
+    public function file()
+    {
+        return $this->hasMany(file::class, 'users_id');
+    }
+
+
 }

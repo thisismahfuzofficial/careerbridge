@@ -41,6 +41,7 @@
     <!-- template css -->
     <link rel="stylesheet" id="change-link" type="text/css" href="{{ asset('assets/css/style.css') }}">
     @stack('styles')
+
 </head>
 
 <body>
@@ -60,11 +61,11 @@
     {{ $slot }}
     <!-- chat section end -->
 
-    <div class="new-part">
+    {{-- <div class="new-part">
         <a href="add-chat-contact.html" class="new-chat-icon">
             <img class="img-fluid icon" src="{{asset('assets/images/svg/messages.svg')}}" alt="messages">
         </a>
-    </div>
+    </div> --}}
 
 
 
@@ -92,44 +93,44 @@
             <ul class="search-categories-list">
                 <li>
                     <div class="search-categories-box">
-                        <img class="img img-fluid" src="{{asset('assets/images/svg/video.svg')}}" alt="video">
+                        <img class="img img-fluid" src="{{ asset('assets/images/svg/video.svg') }}" alt="video">
                         <h6>Video</h6>
                     </div>
                 </li>
                 <li>
                     <div class="search-categories-box">
-                        <img class="img img-fluid" src="{{asset('assets/images/svg/gallery.svg')}}" alt="video">
+                        <img class="img img-fluid" src="{{ asset('assets/images/svg/gallery.svg') }}" alt="video">
                         <h6>Photos</h6>
                     </div>
                 </li>
                 <li>
                     <div class="search-categories-box">
-                        <img class="img img-fluid" src="{{asset('assets/images/svg/headphone.svg')}}" alt="video">
+                        <img class="img img-fluid" src="{{ asset('assets/images/svg/headphone.svg') }}" alt="video">
                         <h6>Audios</h6>
                     </div>
                 </li>
                 <li>
                     <div class="search-categories-box">
-                        <img class="img img-fluid" src="{{asset('assets/images/svg/document.svg')}}" alt="video">
+                        <img class="img img-fluid" src="{{ asset('assets/images/svg/document.svg') }}" alt="video">
                         <h6>Documents</h6>
                     </div>
                 </li>
                 <li>
                     <div class="search-categories-box">
-                        <img class="img img-fluid" src="{{asset('assets/images/svg/gif.svg')}}" alt="video">
+                        <img class="img img-fluid" src="{{ asset('assets/images/svg/gif.svg') }}" alt="video">
                         <h6>GIFs</h6>
                     </div>
                 </li>
                 <li>
                     <div class="search-categories-box">
-                        <img class="img img-fluid" src="{{asset('assets/images/svg/link.svg')}}" alt="video">
+                        <img class="img img-fluid" src="{{ asset('assets/images/svg/link.svg') }}" alt="video">
                         <h6>Links</h6>
                     </div>
                 </li>
 
                 <li>
                     <div class="search-categories-box">
-                        <img class="img img-fluid" src="{{asset('assets/images/svg/message.svg')}}" alt="video">
+                        <img class="img img-fluid" src="{{ asset('assets/images/svg/message.svg') }}" alt="video">
                         <h6>Unread</h6>
                     </div>
                 </li>
@@ -205,7 +206,8 @@
 
                                 <form class="message-inputarea">
                                     <input type="text" class="message-input" placeholder="Type here...">
-                                    <img class="img-fluid smile" src="{{asset('assets/images/svg/smile.svg')}}" alt="">
+                                    <img class="img-fluid smile" src="{{ asset('assets/images/svg/smile.svg') }}"
+                                        alt="">
                                     <i class="iconsax file" data-icon="paperclip-2"> </i>
                                     <i class="iconsax mic" data-icon="mic-2"> </i>
 
@@ -232,7 +234,8 @@
 
                                 <form class="message-inputarea">
                                     <input type="text" class="message-input" placeholder="Type here...">
-                                    <img class="img-fluid smile" src="{{asset('assets/images/svg/smile.svg')}}" alt="">
+                                    <img class="img-fluid smile" src="{{ asset('assets/images/svg/smile.svg') }}"
+                                        alt="">
                                     <i class="iconsax file" data-icon="paperclip-2"> </i>
                                     <i class="iconsax mic" data-icon="mic-2"> </i>
 
@@ -258,7 +261,8 @@
                                 </div>
                                 <form class="message-inputarea">
                                     <input type="text" class="message-input" placeholder="Type here...">
-                                    <img class="img-fluid smile" src="{{asset('assets/images/svg/smile.svg')}}" alt="">
+                                    <img class="img-fluid smile" src="{{ asset('assets/images/svg/smile.svg') }}"
+                                        alt="">
                                     <i class="iconsax file" data-icon="paperclip-2"> </i>
                                     <i class="iconsax mic" data-icon="mic-2"> </i>
 
@@ -291,8 +295,7 @@
     <!-- script js -->
     <script src="{{ asset('assets/js/script.js') }}"></script>
 
-    <!-- template Setting js -->
-    <script src="{{ asset('assets/js/template-setting.html') }}"></script>
+
     @stack('scripts')
 </body>
 
