@@ -13,21 +13,21 @@
         <div class="card  border border-0 shadow">
             <div class="heading d-flex ">
                 <div class="col-4 p-3 ">
-                    <img src="{{ auth()->user()->avatar ? Storage::url(auth()->user()->avatar) : asset('admin/images/users/no-profile.png') }}"
+                    <img src="{{ $user->avatar ? Storage::url($user->avatar) : asset('admin/images/users/no-profile.png') }}"
                         alt="" class="rounded-circle img-fluid shadow">
-
-                    <a href="{{ route('profile.edit', auth()->user()->username) }}"
-                        class="d-flex justify-content-center align-items-center gap-1 mt-3">
-                        <img src="{{ asset('assets/images/svg/edit.svg') }}" alt="Go">
-                        <div class="">Edit Profile</div>
-                    </a>
+                    @if (auth()->user()->id === $user->id)
+                        <a href="{{ route('profile.edit', auth()->user()->username) }}"
+                            class="d-flex justify-content-center align-items-center gap-1 mt-3">
+                            <img src="{{ asset('assets/images/svg/edit.svg') }}" alt="Go">
+                            <div class="">Edit Profile</div>
+                        </a>
+                    @endif
 
                 </div>
                 <div class="col-8 p-3">
                     <div class="d-flex">
-                        <a href="{{ auth()->user()->url }}" class="fs-5 text-success"
-                            target="_blank">{{ auth()->user()->name }}</a>
-                        @if (auth()->user()->is_varified)
+                        <a href="{{ $user->url }}" class="fs-5 text-success" target="_blank">{{ $user->name }}</a>
+                        @if ($user->is_varified)
                             <img src="{{ asset('assets/images/svg/blue-check.svg') }}" alt="checked" class="ms-2">
                         @else
                             <img src="{{ asset('assets/images/svg/gray-check.svg') }}" alt="checked" class="ms-2">
@@ -37,16 +37,19 @@
                                     alt="Go"></a>
                         </div>
                     </div>
-                    <p class="text-secondary border-bottom mb-2">{{ auth()->user()->title }} @ <a
-                            href="{{ auth()->user()->place_link }}"
-                            target="_blank">{{ auth()->user()->place_title }}</a>
-                    </p>
-                    <p class="text-secondary border-bottom mb-2">
-                        {{ \Illuminate\Support\Str::words(auth()->user()->description, 30, '...') }}
-                    </p>
+                    @if ($user->title)
+                        <p class="text-secondary border-bottom mb-2">{{ $user->title }} @ <a
+                                href="{{ $user->place_link }}" target="_blank">{{ $user->place_title }}</a>
+                        </p>
+                    @endif
+                    @if ($user->description)
+                        <p class="text-secondary border-bottom mb-2">
+                            {{ \Illuminate\Support\Str::words($user->description, 30, '...') }}
+                        </p>
+                    @endif
 
                     <div style="display: flex; flex-wrap: wrap; gap: 1px;">
-                        @foreach (auth()->user()->skills as $skill)
+                        @foreach ($user->skills as $skill)
                             <a href="#"
                                 style="word-break: break-word; white-space: nowrap; margin-right: 5px;font-size:14px;color:#01aa85">
                                 {{ $skill->name }} <span class="text-dark">|</span>
@@ -71,12 +74,12 @@
         </div>
     </section>
 
-    <x-app.posts />
+    <x-app.posts :posts="$posts" />
 
 
 
     <!-- Modal -->
-    
+
     @push('scripts')
         <script>
             document.getElementById('image-input').addEventListener('change', (e) => {

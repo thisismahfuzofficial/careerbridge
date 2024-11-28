@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\File;
+use App\Models\Post;
 use App\Models\Skill;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -11,10 +12,15 @@ use Illuminate\Support\Str;
 
 class ProfileController extends Controller
 {
-    public function profile()
+    public function profile($username)
     {
+        $user = User::where('username', $username)->first();
+        
         $skills = Skill::all();
-        return view('layouts.profile',compact('skills'));
+
+        $posts = Post::where('user_id', $user->id)->latest()->get();
+        // dd($posts);
+        return view('layouts.profile',compact('skills','posts','user'));
     }
     public function edit()
     {
@@ -51,7 +57,7 @@ class ProfileController extends Controller
         }
         $user->save();
 
-        return redirect(route('profile.index'))->with('success', 'Profile updated');
+        return redirect(route('profile.index',auth()->user()->username))->with('success', 'Profile updated');
     }
     public function fileUpload(Request $request)
     {
@@ -61,7 +67,7 @@ class ProfileController extends Controller
         }
         $verify->user_id = auth()->user()->id;
         $verify->save();
-        return redirect(route('profile.index'))->with('success', 'Request to be verified has sent');
+        return redirect(route('profile.index',auth()->user()->username))->with('success', 'Request to be verified has sent');
 
     }
 

@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\Admin\PagesController;
+use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\SkillController;
 use App\Http\Controllers\VerifyController;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,10 @@ Route::middleware(['role:admin'])
         Route::controller(VerifyController::class)->group(function () {
             Route::get('/requests', 'index')->name('requests');
             Route::post('/varify/user/{user}', 'varifyUser')->name('varify.user');
+        });
+        Route::controller(PostController::class)->prefix('posts')->as('posts.')->group(function () {
+            Route::get('/', 'index')->name('index');
+            Route::delete('post/delete/{post}','destroy')->name('delete');
         });
 
     });

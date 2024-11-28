@@ -7,15 +7,15 @@
                 </a>
             </div>
             <div class="d-flex align-items-center gap-2">
-                <img class="img-fluid logo" src="assets/images/logo/mini-logo.png" alt="logo">
-                <span class="fw-bold dark-text">Chatzy</span>
+                <img class="img-fluid logo rounded" src="{{ asset('assets/images/logo/black.png') }}" alt="logo">
+                <span class="fw-bold dark-text">Career Bridge</span>
             </div>
 
             <div class="d-flex align-items-center gap-sm-3 gap-2">
                 <a href="#search-offcanvas" data-bs-toggle="offcanvas">
                     <i class="iconsax icon-btn" data-icon="search-normal-2"> </i>
                 </a>
-                <div class="dropdown more-options dropdown-menu-end">
+                {{-- <div class="dropdown more-options dropdown-menu-end">
                     <a class="btn dropdown-toggle mt-0 p-0" href="#" role="button" data-bs-toggle="dropdown">
                         <i class="iconsax icon-btn" data-icon="menu-meatballs"> </i>
                     </a>
@@ -46,12 +46,12 @@
                         @else
                             <li><a href="{{ route('login') }}" class="dropdown-item">
                                     Login</a> </li>
-                            <li><a href="{{'register'}}" class="dropdown-item">
+                            <li><a href="{{ 'register' }}" class="dropdown-item">
                                     Register</a> </li>
                         @endauth
 
                     </ul>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
@@ -60,13 +60,13 @@
 <div class="offcanvas sidebar-offcanvas offcanvas-start" tabindex="-1" id="offcanvasLeft">
     <div class="offcanvas-header sidebar-header">
         <div class="sidebar-logo">
-            <img class="img-fluid logo" src="assets/images/logo/mini-logo.png" alt="logo">
-            <span class="fw-bold dark-text">Chatzy</span>
+            <img class="img-fluid logo rounded" src="{{ asset('assets/images/logo/black.png') }}" alt="logo">
+            <span class="fw-bold dark-text">Career Bridge</span>
         </div>
     </div>
 
     <div class="offcanvas-body">
-        <ul class="link-section switch-section">
+        {{-- <ul class="link-section switch-section">
             <li class="active">
                 <a href="home.html" class="pages">
                     <i class="iconsax sidebar-icon" data-icon="messages-2"> </i>
@@ -151,18 +151,20 @@
                     <input id="dark-switch" type="checkbox">
                 </div>
             </li>
-        </ul>
+        </ul> --}}
 
         <div class="bottom-sidebar">
             <ul class="link-section">
                 <li>
-                    <a href="setting.html" class="pages">
+                    <a href="#" class="pages">
                         <i class="iconsax sidebar-icon" data-icon="nut"> </i>
                         <h3>Setting</h3>
                     </a>
                 </li>
                 <li>
-                    <a href="login.html" class="pages">
+                    <a href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                     document.getElementById('logout-form').submit();"class="pages">
                         <i class="iconsax sidebar-icon" data-icon="logout-2"> </i>
                         <h3>Logout</h3>
                     </a>

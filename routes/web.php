@@ -19,6 +19,7 @@ Route::group(['controller' => PagesController::class, 'as' => 'page.'], function
 });
 Route::group(['controller' => PostController::class, 'as' => 'post.'], function () {
     Route::get('/create-post', 'createPost')->name('create');
+    Route::post('/store-post', 'store')->name('store');
 
 });
 
@@ -27,7 +28,7 @@ Route::group(['controller' => PostController::class, 'as' => 'post.'], function 
 
 Route::middleware('auth')->group(function () {
     Route::controller(ProfileController::class)->group(function () {
-        Route::get('/profile', 'profile')->name('profile.index');
+        Route::get('/profile/{username}', 'profile')->name('profile.index');
         Route::get('/edit/profile/{user}', 'edit')->name('profile.edit');
         Route::post('/profile/update', 'update')->name('profile.update');
         Route::post('/profile/file-upload', 'fileUpload')->name('profile.fileUpload');

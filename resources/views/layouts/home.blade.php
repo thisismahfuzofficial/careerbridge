@@ -1,7 +1,7 @@
 <x-app>
-   
-    <x-app.veteran />
-    <x-app.posts />
 
-   
+    <x-app.veteran :veterans="$veterans" />
+    <x-app.posts :posts="$posts" />
+
+
 </x-app>

@@ -59,19 +59,8 @@
                                     <td>{{ $key + 1 }}</td>
                                     <td>{{ $item->name }}</td>
                                     <td>
-                                        <form id="delete-skills" action="{{ route('admin.skills.delete', $item) }}"
-                                            method="POST" style="display: none;">
-                                            @csrf
-                                            @method('DELETE')
-                                        </form>
-
-                                        <button type="button" class="btn btn-warning"
-                                            onclick="document.getElementById('delete-skills').submit();">
-                                            <i class="bx bx-trash"></i> 
-                                        </button>
-
-
-                                        <button type="button" data-bs-toggle="modal" class="btn btn-danger"
+                                        <x-admin.action.delete :route="route('admin.skills.delete', $item->id)" :id="$item->id" />
+                                        <button type="button" data-bs-toggle="modal" class="btn btn-warning"
                                             data-bs-target=".edit-new-slills{{ $item->id }}"><i
                                                 class="bx bx-pencil"></i></button>
                                         <div>

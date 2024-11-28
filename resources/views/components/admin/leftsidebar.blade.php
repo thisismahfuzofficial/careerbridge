@@ -12,18 +12,15 @@
                 <li><a href="{{route('admin.skills')}}"><i class="bx bx-menu-alt-left"></i><span>Skills</span></a></li>
                 <li><a href="{{route('admin.requests')}}"><i class="bx bx-menu-alt-left"></i><span>Verify Request</span></a></li>
 
-                {{-- <li>
+                <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="bx bx-layout"></i>
-                        <span key="t-dashboards">Portfolio</span>
+                        <i class="bx bxs-image"></i>
+                        <span key="t-dashboards">Posts</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{route('admin.portfolios.index')}}" key="t-default">List</a></li>
-                        <li><a href="{{route('admin.portfolios.create')}}" key="t-default">Create</a></li>
-                        <li><a href="{{route('admin.types.index')}}" key="t-default">types</a></li>
-                        
+                        <li><a href="{{route('admin.posts.index')}}" key="t-default">All Posts</a></li>
                     </ul>
-                </li> --}}
+                </li>
                 {{-- <li><a href="#"><i class="bx bxs-message-alt"></i><span>Contacts</span></a></li> --}}
             </ul>
 

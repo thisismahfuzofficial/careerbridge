@@ -12,14 +12,14 @@
     <meta name="keywords" content="Chatzy">
     <meta name="author" content="Chatzy">
     <link rel="manifest" href="manifest.json">
-    <link rel="icon" href="{{ asset('assets/images/logo/favicon.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('assets/images/logo/white-center.png') }}" type="image/x-icon">
     <title>Chatzy App</title>
-    <link rel="apple-touch-icon" href="{{ asset('assets/images/logo/favicon.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('assets/images/logo/white-center.png') }}">
     <meta name="theme-color" content="#01AA85">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Chatzy">
-    <meta name="msapplication-TileImage" content="{{ asset('assets/images/logo/favicon.png') }}">
+    <meta name="msapplication-TileImage" content="{{ asset('assets/images/logo/white-center.png') }}">
 
     <meta name="msapplication-TileColor" content="#FFFFFF">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -139,146 +139,6 @@
     </div>
     <!-- search offcanvas end -->
 
-    <!-- add story modal starts -->
-    <div class="modal fade add-modal" id="add-story-modal" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3>Add Story</h3>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-
-                <div class="modal-body">
-                    <ul class="story-list">
-                        <li>
-                            <div class="story-types-box">
-                                <div class="story-image">
-                                    <img src="assets/images/icons/gallery.png" alt="gallery">
-                                </div>
-                                <h5>Select From Gallery</h5>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="story-types-box">
-                                <div class="story-image">
-                                    <img src="assets/images/icons/camera.png" alt="camera">
-                                </div>
-                                <h5>Open Camera</h5>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="story-types-box">
-                                <div class="story-image">
-                                    <img src="assets/images/icons/text.png" alt="text">
-                                </div>
-                                <h5>Write Text</h5>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- add story modal end  -->
-
-    <!-- friend story modal starts -->
-    <div class="modal fade story-modal" id="friend-story" tabindex="-1">
-        <div class="modal-dialog modal-fullscreen">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="swiper story__slider">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide position-relative">
-                                <img class="img-fluid story-img" src="assets/images/story-img1.png" alt="story-img">
-                                <div class="story-person-content">
-                                    <div class="d-flex align-items-center gap-2">
-                                        <div class="story-person-img">
-                                            <img class="img-fluid person-icon" src="assets/images/profile/p2.png"
-                                                alt="p2">
-                                        </div>
-                                        <h3> Albert Flores</h3>
-                                        <h6>10 min ago</h6>
-                                    </div>
-                                    <a href="#" data-bs-dismiss="modal">
-                                        <i class="iconsax close-btn" data-icon="add"> </i>
-                                    </a>
-                                </div>
-
-                                <form class="message-inputarea">
-                                    <input type="text" class="message-input" placeholder="Type here...">
-                                    <img class="img-fluid smile" src="{{ asset('assets/images/svg/smile.svg') }}"
-                                        alt="">
-                                    <i class="iconsax file" data-icon="paperclip-2"> </i>
-                                    <i class="iconsax mic" data-icon="mic-2"> </i>
-
-                                    <a href="home.html" type="button" class="message-send-btn">
-                                        <i class="iconsax icon-btn" data-icon="send-2"> </i>
-                                    </a>
-                                </form>
-                            </div>
-                            <div class="swiper-slide">
-                                <img class="img-fluid story-img" src="assets/images/story-img2.png" alt="story-img">
-                                <div class="story-person-content">
-                                    <div class="d-flex align-items-center gap-2">
-                                        <div class="story-person-img">
-                                            <img class="img-fluid person-icon" src="assets/images/profile/p2.png"
-                                                alt="p2">
-                                        </div>
-                                        <h3> Albert Flores</h3>
-                                        <h6>10 min ago</h6>
-                                    </div>
-                                    <a href="#" data-bs-dismiss="modal">
-                                        <i class="iconsax close-btn" data-icon="add"> </i>
-                                    </a>
-                                </div>
-
-                                <form class="message-inputarea">
-                                    <input type="text" class="message-input" placeholder="Type here...">
-                                    <img class="img-fluid smile" src="{{ asset('assets/images/svg/smile.svg') }}"
-                                        alt="">
-                                    <i class="iconsax file" data-icon="paperclip-2"> </i>
-                                    <i class="iconsax mic" data-icon="mic-2"> </i>
-
-                                    <a href="home.html" type="button" class="message-send-btn">
-                                        <i class="iconsax icon-btn" data-icon="send-2"> </i>
-                                    </a>
-                                </form>
-                            </div>
-                            <div class="swiper-slide">
-                                <img class="img-fluid story-img" src="assets/images/story-img3.png" alt="story-img">
-                                <div class="story-person-content">
-                                    <div class="d-flex align-items-center gap-2">
-                                        <div class="story-person-img">
-                                            <img class="img-fluid person-icon" src="assets/images/profile/p2.png"
-                                                alt="p2">
-                                        </div>
-                                        <h3> Albert Flores</h3>
-                                        <h6>10 min ago</h6>
-                                    </div>
-                                    <a href="#" data-bs-dismiss="modal">
-                                        <i class="iconsax close-btn" data-icon="add"> </i>
-                                    </a>
-                                </div>
-                                <form class="message-inputarea">
-                                    <input type="text" class="message-input" placeholder="Type here...">
-                                    <img class="img-fluid smile" src="{{ asset('assets/images/svg/smile.svg') }}"
-                                        alt="">
-                                    <i class="iconsax file" data-icon="paperclip-2"> </i>
-                                    <i class="iconsax mic" data-icon="mic-2"> </i>
-
-                                    <a href="home.html" type="button" class="message-send-btn">
-                                        <i class="iconsax icon-btn" data-icon="send-2"> </i>
-                                    </a>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="story__pagination swiper-pagination"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- friend story modal end -->
 
     <!-- iconsax js -->
     <script src="{{ asset('assets/js/iconsax.js') }}"></script>
