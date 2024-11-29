@@ -25,7 +25,7 @@
             @csrf
             <img id="image-preview" src="{{ asset('assets/images/background/blank.png') }}" alt="Image Preview"
                 class="img-fluid rounded">
-            <input type="file" id="image-input" class="form-control mt-2" name="image" >
+            <input type="file" id="image-input" class="form-control mt-2" name="image">
 
 
     </div>
@@ -88,12 +88,12 @@
                 const textarea = document.getElementById('descriptioninput');
                 const wordCount = document.getElementById('wordCount');
                 const words = textarea.value.trim().split(/\s+/).filter(Boolean);
-                
+
                 // Limit words to 70
                 if (words.length > 70) {
                     textarea.value = words.slice(0, 70).join(" ");
                 }
-        
+
                 // Update word count display
                 wordCount.textContent = `${words.length}/70 words`;
             }

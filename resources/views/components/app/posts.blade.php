@@ -12,14 +12,14 @@
     </style>
 @endpush
 @foreach ($posts as $post)
-    <div class="card mt-3 border border-0">
+    <div class="mt-3 border-bottom pb-3">
         <div class="heading d-flex align-items-center gap-2">
-            <div class="col-2 p-3">
+            <div class="col-3 col-md-2 p-2">
                 <a href="{{ route('profile.index', $post->user->username) }}">
-
                     <img src="{{ $post->user->avatar ? Storage::url($post->user->avatar) : asset('admin/images/users/no-profile.png') }}"
-                        alt="" class="rounded-circle img-fluid">
+                        alt="" class="rounded-circle img-fluid" style="width: 70px;height: 70px;padding: 2px;-webkit-backdrop-filter: blur(4px);backdrop-filter: blur(4px);border: 1px solid rgba(var(--theme-color), 1);border-radius: 100%;-o-object-fit: cover;object-fit: cover;">
                 </a>
+
             </div>
             <div class="d-flex align-items-center w-100">
                 <div class="post-title">
@@ -38,15 +38,20 @@
                 <div class="p-3 ms-auto">
                     <img class="active" src="{{ asset('assets/images/svg/save.svg') }}" alt="save">
                     {{-- <img class="active" src="{{ asset('assets/images/svg/save-fill.svg') }}" alt="save"> --}}
+                    <a class="p-1 " style="cursor: pointer"><img class="active"
+                            src="{{ asset('assets/images/svg/three-dot.svg') }}" alt="save"></a>
+
                 </div>
             </div>
 
 
         </div>
-        <div class="img">
-            <img src="{{ $post->image ? Storage::url($post->image) : asset('assets/images/background/blank.png') }}"
-                alt="" class="img-fluid rounded">
-        </div>
+        @if ($post->image)
+            <div class="img">
+                <img src="{{ $post->image ? Storage::url($post->image) : asset('assets/images/background/blank.png') }}"
+                    alt="" class="img-fluid rounded">
+            </div>
+        @endif
 
 
         <div class="content px-2">
@@ -63,17 +68,18 @@
                 {{ $post->description }}
             </p>
             <br>
-            <div class="d-flex gap-1">
-                <div class="fst-italic">Drive :</div>
-                <a href="{{ $post->link }}" class="text-primary fst-italic text-decoration-underline"
-                    target="_blank">{{ $post->link }}</a>
-            </div>
+            @if ($post->link)
+                <div class="d-flex gap-1">
+                    <div class="fst-italic">Drive :</div>
+                    <a href="{{ $post->link }}" class="text-primary fst-italic text-decoration-underline"
+                        target="_blank">{{ $post->link }}</a>
+                </div>
+            @endif
 
         </div>
 
 
     </div>
-    <hr>
 @endforeach
 
 @push('scripts')

@@ -1,3 +1,6 @@
+@php
+    $skills = app\Models\Skill::latest()->get();
+@endphp
 <header id="header" class="main-header section-b-space">
     <div class="custom-container">
         <div class="header-panel">
@@ -152,6 +155,17 @@
                 </div>
             </li>
         </ul> --}}
+        <div class="p-2">
+            <h3>Filter Posts</h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 1px;">
+                @foreach ($skills as $skill)
+                    <a href="#"
+                        style="word-break: break-word; white-space: nowrap; margin-right: 5px;font-size:14px;color:#01aa85">
+                        {{ $skill->name }} <span class="text-dark">|</span>
+                    </a>
+                @endforeach
+            </div>
+        </div>
 
         <div class="bottom-sidebar">
             <ul class="link-section">
@@ -168,6 +182,9 @@
                         <i class="iconsax sidebar-icon" data-icon="logout-2"> </i>
                         <h3>Logout</h3>
                     </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
                 </li>
             </ul>
         </div>

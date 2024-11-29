@@ -5,6 +5,21 @@
                 background: #018f6c !important;
                 transition: background 0.3s ease;
             }
+
+            .profile-img {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                object-fit: cover;
+
+            }
+
+            @media (min-width: 600px) {
+                .profile-img {
+                    width: 150px;
+                    height: 150px;
+                }
+            }
         </style>
     @endpush
 
@@ -14,7 +29,8 @@
             <div class="heading d-flex ">
                 <div class="col-4 p-3 ">
                     <img src="{{ $user->avatar ? Storage::url($user->avatar) : asset('admin/images/users/no-profile.png') }}"
-                        alt="" class="rounded-circle img-fluid shadow">
+                        alt="Profile Image" class="profile-img mx-auto d-block img-fluid shadow">
+
                     @if (auth()->user()->id === $user->id)
                         <a href="{{ route('profile.edit', auth()->user()->username) }}"
                             class="d-flex justify-content-center align-items-center gap-1 mt-3">
@@ -44,7 +60,7 @@
                     @endif
                     @if ($user->description)
                         <p class="text-secondary border-bottom mb-2">
-                            {{ \Illuminate\Support\Str::words($user->description, 30, '...') }}
+                            {{ \Illuminate\Support\Str::words($user->description, 50, '...') }}
                         </p>
                     @endif
 
@@ -57,17 +73,18 @@
                         @endforeach
                     </div>
 
+                    @if (auth()->user()->id === $user->id)
+                        <div class="text-center">
 
-                    <div class="text-center">
+                            <a href="{{ route('post.create') }}"
+                                class="btn create waves-effect btn-sm w-100 d-flex justify-content-center align-items-center gap-1 mt-3"
+                                style="background: #01aa85">
+                                <img src="{{ asset('assets/images/svg/create.svg') }}" alt="Go">
+                                <div class="text-light">Create Post</div>
+                            </a>
 
-                        <a href="{{ route('post.create') }}"
-                            class="btn create waves-effect btn-sm w-100 d-flex justify-content-center align-items-center gap-1 mt-3"
-                            style="background: #01aa85">
-                            <img src="{{ asset('assets/images/svg/create.svg') }}" alt="Go">
-                            <div class="text-light">Create Post</div>
-                        </a>
-
-                    </div>
+                        </div>
+                    @endif
                 </div>
             </div>
 

@@ -14,5 +14,17 @@ class Post extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function scopeSearch($query, $search)
+    {
+        return $query->where('title', 'like', "%{$search}%")
+            ->orWhere('description', 'like', "%{$search}%")
+            ->orWhereHas('user', function ($query) use ($search) {
+                $query->where('name', 'like', "%{$search}%");
+            })
+            ->orWhereHas('skills', function ($query) use ($search) {
+                $query->where('name', 'like', "%{$search}%");
+            });
+    }
+
 
 }

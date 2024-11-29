@@ -80,61 +80,19 @@
     <!-- search offcanvas starts -->
     <div class="offcanvas offcanvas-top search-offcanvas" tabindex="-1" id="search-offcanvas">
         <div class="offcanvas-header">
-            <a href="setting.html" data-bs-dismiss="offcanvas">
+            <a href="" data-bs-dismiss="offcanvas">
                 <i class="iconsax icon-btn" data-icon="chevron-left"> </i>
             </a>
             <div class="form-input">
-                <input type="search" class="form-control search" id="inputusername" placeholder="Search here...">
-                <i class="iconsax search" data-icon="search-normal-2"> </i>
+                <form action="{{route('page.search')}}" >
+                    <input type="text" name="query" class="form-control search" id="inputusername" placeholder="Search here..." value="{{ request('query') }}">
+                    <i class="iconsax search" data-icon="search-normal-2"></i>
+                </form>
             </div>
         </div>
 
         <div class="offcanvas-body">
-            <ul class="search-categories-list">
-                <li>
-                    <div class="search-categories-box">
-                        <img class="img img-fluid" src="{{ asset('assets/images/svg/video.svg') }}" alt="video">
-                        <h6>Video</h6>
-                    </div>
-                </li>
-                <li>
-                    <div class="search-categories-box">
-                        <img class="img img-fluid" src="{{ asset('assets/images/svg/gallery.svg') }}" alt="video">
-                        <h6>Photos</h6>
-                    </div>
-                </li>
-                <li>
-                    <div class="search-categories-box">
-                        <img class="img img-fluid" src="{{ asset('assets/images/svg/headphone.svg') }}" alt="video">
-                        <h6>Audios</h6>
-                    </div>
-                </li>
-                <li>
-                    <div class="search-categories-box">
-                        <img class="img img-fluid" src="{{ asset('assets/images/svg/document.svg') }}" alt="video">
-                        <h6>Documents</h6>
-                    </div>
-                </li>
-                <li>
-                    <div class="search-categories-box">
-                        <img class="img img-fluid" src="{{ asset('assets/images/svg/gif.svg') }}" alt="video">
-                        <h6>GIFs</h6>
-                    </div>
-                </li>
-                <li>
-                    <div class="search-categories-box">
-                        <img class="img img-fluid" src="{{ asset('assets/images/svg/link.svg') }}" alt="video">
-                        <h6>Links</h6>
-                    </div>
-                </li>
 
-                <li>
-                    <div class="search-categories-box">
-                        <img class="img img-fluid" src="{{ asset('assets/images/svg/message.svg') }}" alt="video">
-                        <h6>Unread</h6>
-                    </div>
-                </li>
-            </ul>
         </div>
     </div>
     <!-- search offcanvas end -->

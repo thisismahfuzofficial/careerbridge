@@ -15,11 +15,13 @@ Auth::routes();
 Route::group(['controller' => PagesController::class, 'as' => 'page.'], function () {
     Route::get('/', 'index')->name('home');
     Route::get('/saved', 'saved')->name('saved');
+    Route::get('/search', 'search')->name('search');
 
 });
 Route::group(['controller' => PostController::class, 'as' => 'post.'], function () {
     Route::get('/create-post', 'createPost')->name('create');
     Route::post('/store-post', 'store')->name('store');
+    
 
 });
 
