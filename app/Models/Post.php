@@ -21,10 +21,17 @@ class Post extends Model
             ->orWhereHas('user', function ($query) use ($search) {
                 $query->where('name', 'like', "%{$search}%");
             })
+            ->orWhereHas('user', function ($query) use ($search) {
+                $query->where('title', 'like', "%{$search}%");
+            })
             ->orWhereHas('skills', function ($query) use ($search) {
-                $query->where('name', 'like', "%{$search}%");
+                $query->where('name', $search);
             });
     }
-
-
+    public function scopeFilter($query, $filter)
+    {
+        return $query->WhereHas('skills', function ($query) use ($filter) {
+            $query->where('name', $filter);
+        });
+    }
 }

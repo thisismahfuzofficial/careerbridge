@@ -9,10 +9,10 @@
                     <i class="iconsax icon-btn" data-icon="text-align-left"> </i>
                 </a>
             </div>
-            <div class="d-flex align-items-center gap-2">
+            <a href="{{route('page.home')}}" class="d-flex align-items-center gap-2">
                 <img class="img-fluid logo rounded" src="{{ asset('assets/images/logo/black.png') }}" alt="logo">
                 <span class="fw-bold dark-text">Career Bridge</span>
-            </div>
+            </a>
 
             <div class="d-flex align-items-center gap-sm-3 gap-2">
                 <a href="#search-offcanvas" data-bs-toggle="offcanvas">

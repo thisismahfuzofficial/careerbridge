@@ -11,6 +11,7 @@ class PagesController extends Controller
 {
     public function index()
     {
+        
         $posts = Post::where('status', 'active')->latest()->get();
         $veterans = User::where('is_varified', 1)->latest()->take(10)->get();
         return view('layouts.home', compact('posts', 'veterans'));
@@ -24,6 +25,12 @@ class PagesController extends Controller
     {
         $query = $request->input('query');
         $posts = Post::search($query)->get();
+        return view('layouts.search', compact('posts'));
+    }
+    public function filter(Request $request)
+    {
+        $filter = $request->input('filter');
+        $posts = Post::filter($filter)->get();
         return view('layouts.search', compact('posts'));
     }
     public function authorProfile($username)

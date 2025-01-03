@@ -59,8 +59,12 @@
             <p class="fw-bold fs-6 mt-1">{{ $post->title }}</p>
             <div style="display: flex; flex-wrap: wrap; gap: 1px;">
                 @foreach ($post->skills as $skill)
-                    <a href="#"
-                        style="word-break: break-word; white-space: nowrap; margin-right: 5px;font-size:14px;color:#01aa85">
+                    <form action="{{ route('page.filter') }}" method="GET" id="filterForm-{{ $skill->id }}"
+                        style="display: inline;">
+                        <input type="hidden" name="filter" value="{{ $skill->name }}">
+                    </form>
+                    <a style="word-break: break-word; white-space: nowrap; margin-right: 5px; font-size: 14px; color: #01aa85; cursor: pointer;"
+                        onclick="document.getElementById('filterForm-{{ $skill->id }}').submit()">
                         {{ $skill->name }} <span class="text-dark">|</span>
                     </a>
                 @endforeach

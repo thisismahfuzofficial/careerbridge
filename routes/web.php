@@ -16,6 +16,7 @@ Route::group(['controller' => PagesController::class, 'as' => 'page.'], function
     Route::get('/', 'index')->name('home');
     Route::get('/saved', 'saved')->name('saved');
     Route::get('/search', 'search')->name('search');
+    Route::get('/filter', 'filter')->name('filter');
     Route::get('/author/{username}', 'authorProfile')->name('author');
 });
 Route::group(['controller' => PostController::class, 'as' => 'post.'], function () {
