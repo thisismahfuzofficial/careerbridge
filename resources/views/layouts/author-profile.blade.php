@@ -31,13 +31,7 @@
                     <img src="{{ $user->avatar ? Storage::url($user->avatar) : asset('admin/images/users/no-profile.png') }}"
                         alt="Profile Image" class="profile-img mx-auto d-block img-fluid shadow">
 
-                    @if (auth()->user()->id === $user->id)
-                        <a href="{{ route('profile.edit', auth()->user()->username) }}"
-                            class="d-flex justify-content-center align-items-center gap-1 mt-3">
-                            <img src="{{ asset('assets/images/svg/edit.svg') }}" alt="Go">
-                            <div class="">Update</div>
-                        </a>
-                    @endif
+                    
 
                 </div>
                 <div class="col-8 p-3">
@@ -73,18 +67,7 @@
                         @endforeach
                     </div>
 
-                    @if (auth()->user()->id === $user->id)
-                        <div class="text-center">
-
-                            <a href="{{ route('post.create') }}"
-                                class="btn create waves-effect btn-sm w-100 d-flex justify-content-center align-items-center gap-1 mt-3"
-                                style="background: #01aa85">
-                                <img src="{{ asset('assets/images/svg/create.svg') }}" alt="Go">
-                                <div class="text-light">Create Post</div>
-                            </a>
-
-                        </div>
-                    @endif
+                 
                 </div>
             </div>
 

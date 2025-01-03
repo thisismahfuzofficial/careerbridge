@@ -11,7 +11,8 @@
             <div class="swiper-wrapper">
                 @foreach ($veterans as $veteran)
                     <div class="swiper-slide">
-                        <a href="{{route('profile.index',$veteran->username)}}" class="btn profile-story-box read p-0 border-0">
+                        <a href="{{ route('page.author', $veteran->username) }}"
+                            class="btn profile-story-box read p-0 border-0">
                             <img class="img-fluid person-img"
                                 src="{{ $veteran->avatar ? Storage::url($veteran->avatar) : asset('admin/images/users/no-profile.png') }}"
                                 alt="p2">

@@ -26,6 +26,14 @@ class PagesController extends Controller
         $posts = Post::search($query)->get();
         return view('layouts.search', compact('posts'));
     }
+    public function authorProfile($username)
+    {
+        $user = User::where('username', $username)->first();
+
+        $skills = Skill::all();
+        $posts = Post::where('user_id', $user->id)->latest()->get();
+        return view('layouts.profile', compact('skills', 'posts', 'user'));
+    }
 
 
 }

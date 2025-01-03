@@ -15,16 +15,17 @@
     <div class="mt-3 border-bottom pb-3">
         <div class="heading d-flex align-items-center gap-2">
             <div class="col-3 col-md-2 p-2">
-                <a href="{{ route('profile.index', $post->user->username) }}">
+                <a href="{{ route('page.author', $post->user->username) }}">
                     <img src="{{ $post->user->avatar ? Storage::url($post->user->avatar) : asset('admin/images/users/no-profile.png') }}"
-                        alt="" class="rounded-circle img-fluid" style="width: 70px;height: 70px;padding: 2px;-webkit-backdrop-filter: blur(4px);backdrop-filter: blur(4px);border: 1px solid rgba(var(--theme-color), 1);border-radius: 100%;-o-object-fit: cover;object-fit: cover;">
+                        alt="" class="rounded-circle img-fluid"
+                        style="width: 70px;height: 70px;padding: 2px;-webkit-backdrop-filter: blur(4px);backdrop-filter: blur(4px);border: 1px solid rgba(var(--theme-color), 1);border-radius: 100%;-o-object-fit: cover;object-fit: cover;">
                 </a>
 
             </div>
             <div class="d-flex align-items-center w-100">
                 <div class="post-title">
                     <div class="">
-                        <a href="{{ route('profile.index', $post->user->username) }}"
+                        <a href="{{ route('page.author', $post->user->username) }}"
                             class="fw-5 text-dark">{{ $post->user->name }}
                         </a>
                         @if ($post->user->is_varified)

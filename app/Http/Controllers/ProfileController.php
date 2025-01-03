@@ -17,11 +17,10 @@ class ProfileController extends Controller
         $user = User::where('username', $username)->first();
         
         $skills = Skill::all();
-
         $posts = Post::where('user_id', $user->id)->latest()->get();
-        // dd($posts);
         return view('layouts.profile',compact('skills','posts','user'));
     }
+   
     public function edit()
     {
         $skills = Skill::all();
